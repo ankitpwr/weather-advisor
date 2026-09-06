@@ -48,10 +48,13 @@ const App: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(import.meta.env.VITE_BASE_URL, {
-        query: userQuery,
-        conversationId: conversationId,
-      });
+      const response = await axios.post(
+        `${import.meta.env.VITE_BASE_URL}/api/v1/ask`,
+        {
+          query: userQuery,
+          conversationId: conversationId,
+        },
+      );
 
       const botReply =
         response.data?.reply ||
