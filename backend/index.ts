@@ -5,6 +5,10 @@ const app = express();
 app.use(cors({ origin: [process.env.CLIENT_URL!] }));
 app.use(express.json());
 
+app.get("/health", (_req, res) => {
+  res.status(200).json({ status: "ok" });
+});
+
 app.post("/api/v1/ask", async (req, res) => {
   const { query, conversationId } = req.body;
 
@@ -21,12 +25,8 @@ app.post("/api/v1/ask", async (req, res) => {
   }
 });
 
-app.listen(3000, () => {
-  console.log("up and running");
-});
+const port = Number(process.env.PORT) || 3000;
 
-//   startAgent(
-//     //   "Should I take my 7-year-old to the park this afternoon in Delhi?",
-//     "how about in the evening around 5pm",
-//     "123e4567-e89b-12d3-a456-426614174123",
-//   );
+app.listen(port, "0.0.0.0", () => {
+  console.log(`up and running on port ${port}`);
+});
