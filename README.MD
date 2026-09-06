@@ -91,6 +91,24 @@ run (fixtures/mocked weather payloads, etc.) run it once after installing, and
 again if the eval fixtures change. `bun run eval` runs the suite and prints
 pass/fail per case; see [Eval suite](#eval-suite) below for what each case checks.
 
+### Evaluation results
+
+The evaluation suite contains 6 weather-advisory questions. It uses an OpenAI
+LLM-as-judge to measure two aspects of the agent's responses:
+
+- **Faithfulness (GEval)** — whether the response follows the applicable SOP
+  advice template, preserves important weather values and thresholds, and avoids
+  unsupported or weaker safety guidance.
+- **Task Completion** — whether the response successfully addresses the user's
+  request and completes the expected weather-advisory task.
+
+Latest recorded results:
+
+| metric               | average score | pass rate | passed | total |
+| -------------------- | ------------- | --------- | ------ | ----- |
+| Faithfulness (GEval) | 0.93          | 100.00%   | 6      | 6     |
+| Task Completion      | 0.83          | 83.33%    | 5      | 6     |
+
 ## SOP policy
 
 SOPs live at **`backend/agent/sop.policy.ts`**, as a plain exported object

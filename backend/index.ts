@@ -25,6 +25,18 @@ app.post("/api/v1/ask", async (req, res) => {
   }
 });
 
+app.get("/api/v1/health-check", async (req, res) => {
+  try {
+    return res.status(200).json({
+      message: "up and running",
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      error: "Internal server error",
+    });
+  }
+});
 const port = Number(process.env.PORT) || 3000;
 
 app.listen(port, "0.0.0.0", () => {

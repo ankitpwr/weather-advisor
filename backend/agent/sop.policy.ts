@@ -334,11 +334,11 @@ export const policy = {
       ],
       condition: {
         description:
-          "Question matches a recognized activity category but no other SOP's condition was met. Reports the actual numbers rather than declaring 'safe.'",
+          "Question matches a recognized activity category but no other SOP's condition was met. ",
       },
       activity_keywords: ["*"],
       advice_template:
-        "No specific advisory applies right now. Conditions: {temperature_2m} degrees C (feels like {apparent_temperature}), {precipitation_probability}% chance of rain, wind at {wind_speed_10m} km/h, UV index {uv_index}.",
+        "No specific weather hazard is indicated for this activity right now. Conditions: {temperature_2m} degrees C (feels like {apparent_temperature}), {precipitation_probability}% chance of rain, wind at {wind_speed_10m} km/h, UV index {uv_index}.",
     },
   ],
 };

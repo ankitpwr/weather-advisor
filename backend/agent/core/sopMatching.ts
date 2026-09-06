@@ -12,7 +12,7 @@ const structuredRespose = z.object({
   failMessage: z.string().optional(),
 });
 const model = new ChatGoogleGenerativeAI({
-  model: "gemini-3.5-flash-lite",
+  model: "gemini-3.1-flash-lite",
   maxRetries: 2,
   temperature: 0.1,
   apiKey: process.env.GOOGLE_API_KEY,
