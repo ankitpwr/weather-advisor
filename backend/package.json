@@ -1,0 +1,31 @@
+{
+  "name": "backend",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "bun --watch index.ts",
+    "postinstall": "node ./evals/scripts/path-deepeval.mjs",
+    "eval": "bun ./evals/evaluator.ts",
+    "start": "bun index.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@langchain/core": "^1.2.9",
+    "@langchain/google-genai": "^2.3.0",
+    "@langchain/langgraph": "^1.4.14",
+    "@types/express": "^5.0.6",
+    "@sentry/node": "^10.27.0",
+    "axios": "^1.20.0",
+    "cors": "^2.8.6",
+    "deepeval": "^0.9.14",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "zod": "^4.5.4"
+  }
+}
