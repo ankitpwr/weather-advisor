@@ -48,7 +48,7 @@ bun run dev
 ### Frontend (client)
 
 ```bash
-cd frontend
+cd client
 bun install
 bun run dev
 ```
